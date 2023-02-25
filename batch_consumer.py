@@ -33,7 +33,6 @@ class Batch_Layer:
         for msg in self.consumer:
             folder = msg.value['unique_id']
             s3.put_object(Body = (json.dumps(msg.value).encode("ascii")), Bucket = self.BUCKET_NAME ,Key = f'pinterest_data_{folder}.json') 
-        return folder
 
     def batch(self):
         os.environ["PYSPARK_SUBMIT_ARGS"] = "--packages com.amazonaws:aws-java-sdk-s3:1.12.395,org.apache.hadoop:hadoop-aws:3.3.4 pyspark-shell"
@@ -48,7 +47,7 @@ class Batch_Layer:
 
 
         df = spark.read.json("s3a://pinterest-data-afc4779f-6007-47fc-90c9-e84f59c36905/*.json")
-#        df = df.withColumn('tag_list', regexp_replace('tag_list', "N,o, ,T,a,g,s, ,A,v,a,i,l,a,b,l,e", "None"))
+        df = df.withColumn('tag_list', regexp_replace('tag_list', "N,o, ,T,a,g,s, ,A,v,a,i,l,a,b,l,e", "None"))
         df = df.withColumn('follower_count', regexp_replace('follower_count', 'k', '000'))
         df = df.withColumn('follower_count', regexp_replace('follower_count', 'M', '000000'))
         df = df.withColumn('save_location', regexp_replace('save_location', 'Local save in ', ''))
