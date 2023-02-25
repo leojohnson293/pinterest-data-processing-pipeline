@@ -69,7 +69,7 @@ class Streaming_Layer:
 
 
 
-        def for_each_batch(stream_df,epoch_id):
+        def send_to_SQL(stream_df,epoch_id):
 
             url = 'jdbc:postgresql://localhost:5432/pinterest_streaming'
             properties = {"user" : "postgres", "password": "password", "driver":"org.postgresql.Driver"}
@@ -78,7 +78,7 @@ class Streaming_Layer:
 
         stream_df.writeStream \
             .format("jdbc") \
-            .foreachBatch(for_each_batch) \
+            .foreachBatch(send_to_SQL) \
             .outputMode("update")\
             .start()\
             .awaitTermination()
