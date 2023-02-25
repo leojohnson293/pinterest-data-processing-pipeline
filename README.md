@@ -69,7 +69,7 @@ def run_infinite_post_data_loop():
 ```
 ### **Apache Kafka**
 <p align="center">
-<img src= "https://waytoeasylearn.com/wp-content/uploads/2020/01/Apache-Kafka-architecture.jpg" width=650>
+<img src= "https://images.idgesg.net/images/article/2017/08/apache-kafka-architecture-100731656-large.jpg?auto=webp&quality=85,70" width=650>
 <p>
 <p align="center">
 Figure 2 - Kafka Architecture
