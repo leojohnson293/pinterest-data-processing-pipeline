@@ -237,7 +237,13 @@ with DAG('pinterest_dag',
 
     S3_task >> sleep_task >> Spark_task            # Defines the sequence in which the tasks are run.
 ```
-
+Figure 3 shows the tasks successfully computed in the DAG on the Airflow UI. 
+<p align="center">
+<img src= "Screenshot_20230225_185448.png" width= 500>
+<p>
+<p align="center">
+Figure 3 - Tasks in the Airflow UI
+<p>
 ---
 ## ***Stream Processing***
 ### ***Spark Streaming***
