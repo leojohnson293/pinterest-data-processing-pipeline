@@ -244,7 +244,9 @@ Figure 3 shows the tasks successfully computed in the DAG on the Airflow UI.
 <p align="center">
 Figure 3 - Tasks in the Airflow UI
 <p>
+
 ---
+
 ## ***Stream Processing***
 ### ***Spark Streaming***
 ### _Spark-Kafka Integration_
