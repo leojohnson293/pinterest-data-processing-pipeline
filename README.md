@@ -237,17 +237,10 @@ with DAG('pinterest_dag',
 
     S3_task >> sleep_task >> Spark_task            # Defines the sequence in which the tasks are run.
 ```
-Figure 3 shows the tasks successfully computed in the DAG on the Airflow UI. 
-<p align="center">
-<img src= "Screenshot_20230225_185448.png" width= 500>
-<p>
-<p align="center">
-Figure 3 - Tasks in the Airflow UI
-<p>
 
 ---
 
-## ***Stream Processing***
+## **Stream Processing**
 ### ***Spark Streaming***
 ### _Spark-Kafka Integration_
 The code below is the `stream` method from the `StreamingLayer` class in the streaming_consumer.py file. Here the messages from the Kafka consumer are submitted to Spark streaming as separate batches. To connect kafka to spark streaming, packages are submitted to the pyspark shell from the Mavern repository likewise before when Spark had to be connected to S3 for batch processing. The  Mavern coordinates  submitted to the pyspark shell here, are for the Kafka package and the PostgreSQL package which are separated by a comma in `os.environ["PYSPARK_SUBMIT_ARGS"]`. The Kafka package is used to stream data from Kafka to Spark. The PostgreSQL package is for later to send to stream data to a PostgreSQL database.
